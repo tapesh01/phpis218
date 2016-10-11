@@ -1,41 +1,36 @@
 <?php
 
-  echo 'Hello World';
-  '<br>'
+class html {
+	public $html;
+	public function __construct($html = 'DEFAULT' ){
+    		 echo $html;
+	}
+}
 
- 
-  $myarray = array();
-  $myarray = 'some value 1';
-  $myarray = 'some value 2';
-  $myarray = 'some value 3';
-
-  print_r($myarray);
-
-  $myAssoc = array('value1' => $myarray, 'value2' => $myarray);
-
-  print_r($myAssoc);
   
-  print_r($myAssoc['value1']);
 
-  class myclass {
-  
-  public $myPublic;
-  private $myPrivate;
-  protected $myProtected;
+class htmlTable extends html {
+	protected $table;
+	public function getTableHTML() {
+		$this->html = 'some table html';
+	}
+  	public function fromArray($arr){
+		$this->html = $html + '<table>';
+		foreach($arr as $link){
+			$this->html = $html + '<tr>';
+			foreach($link as $key => $value){
+				$this->html = $html + '<td>' + $key + '</td>' ; 
+				$this->html = $html + '<td>' + $value + '</td>';
+			}
+			$this->html = $html + '</tr>';
+		}
+		$this->html = $html + '</table>';
+	}
+}
 
-  public function_construct() {
-  	
-	$this->myPublic = 1;
-	$this->myPrivate = 2;
-	$this->myProtected = 3;
-
-  }
-}	
-  $obj = new myclass;
-
-  print_r($obj);
-
-
-
+ $obj = new htmlTable; 
+ $html = $obj->getTableHTML();
+ echo $obj->$html;
 
 ?>
+
