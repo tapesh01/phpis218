@@ -10,10 +10,6 @@ class html {
   
 
 class htmlTable extends html {
-	protected $table;
-	public function getTableHTML() {
-		$this->html = 'some table html';
-	}
   	public function fromArray($arr){
 		$this->html = $html + '<table>';
 		foreach($arr as $link){
@@ -28,9 +24,10 @@ class htmlTable extends html {
 	}
 }
 
- $obj = new htmlTable; 
- $html = $obj->getTableHTML();
- echo $obj->$html;
+$obj = new htmlTable; 
 
+$seasons = array(1=>"Autumn",2 =>"Winter",3=>"Spring",4=>"Summer");
+$obj->fromArray($seasons);
+echo $obj->$html;
 ?>
 
